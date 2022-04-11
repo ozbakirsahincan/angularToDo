@@ -5,9 +5,8 @@
                 {{getName()}} 'ın listesi
             </h3>
             <div class="input-group mb-3">
-                <input #txtItem type="text" class="form-control"
-                    (keyup.enter)="addItem(txtItem.value); txtItem.value=''">
-                <button class="btn btn-success" (click)="addItem(txtItem.value); txtItem.value='' ">+</button>
+                <input type="text" class="form-control" (keyup.enter)="addItem();" [(ngModel)]="inputText">
+                <button [class]="getBtnClasses()" class="btn" (click)="addItem(); ">+</button>
             </div>
 
             <div class="form-check mb-3">
