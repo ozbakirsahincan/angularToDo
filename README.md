@@ -20,4 +20,5 @@ Her türlü eleştriye ve geliştirmeye açığım.
 [Linkedin](https://www.linkedin.com/in/%C5%9Fahincan-%C3%B6zbak%C4%B1r-19554aa1/)
 [Instagram](https://www.instagram.com/sahincanozbakir/)
 [Twitter](https://twitter.com/SahincanR)
+[Youtube](https://youtu.be/lC-se1OeOA8)
 veya E mail adresimden 'ozbakirsahincan@gmail.com' ulaşabilirsiniz.
