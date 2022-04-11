@@ -8,7 +8,9 @@ import { TodoItem } from '../todoitem';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  constructor() {}
+  constructor() {
+    this.model.items = this.getItemsFromLS();
+  }
 
   private name: string = 'Şahincan';
   model = new Model();
@@ -27,11 +29,35 @@ export class TodoComponent {
   }
   addItem() {
     if (this.inputText != '') {
-      this.model.items.push({ description: this.inputText, action: false });
+      let data = { description: this.inputText, action: false };
+      this.model.items.push(data);
+
+      let items = this.getItemsFromLS();
+      items.push(data);
+      localStorage.setItem('items', JSON.stringify(items));
       this.inputText = '';
     } else {
       alert('Lütfen bir bilgi giriniz ... ');
     }
+  }
+  getItemsFromLS() {
+    let items: TodoItem[] = [];
+    let value = localStorage.getItem('items');
+    if (value != null) {
+      items = JSON.parse(value);
+    }
+    return items;
+  }
+  onActionChanged(item: TodoItem) {
+    let items = this.getItemsFromLS();
+    localStorage.clear();
+
+    items.forEach((i) => {
+      if (i.description == item.description) {
+        i.action = item.action;
+      }
+    });
+    localStorage.setItem('items', JSON.stringify(items));
   }
   displayCount() {
     return this.model.items.filter((i) => i.action).length;

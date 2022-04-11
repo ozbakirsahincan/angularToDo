@@ -50,7 +50,7 @@
                                 </ng-template>
                             </td>
                             <td>
-                                <input type="checkbox" [(ngModel)]="item.action">
+                                <input type="checkbox" (change)="onActionChanged(item)" [(ngModel)]="item.action">
                             </td>
                         </tr>
                     </tbody>
