@@ -1,5 +1,5 @@
 import { Model } from '../model';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TodoItem } from '../todoitem';
 
 @Component({
@@ -17,6 +17,7 @@ export class TodoComponent {
 
   displayAll: boolean = false;
   inputText: string = '';
+  id: number = 0;
 
   getName() {
     return this.model.name;
@@ -29,8 +30,10 @@ export class TodoComponent {
   }
   addItem() {
     if (this.inputText != '') {
-      let data = { description: this.inputText, action: false };
+      let data = { id: this.id, description: this.inputText, action: false };
+      this.id = this.id + 1;
       this.model.items.push(data);
+      console.log(data);
 
       let items = this.getItemsFromLS();
       items.push(data);
@@ -53,7 +56,7 @@ export class TodoComponent {
     localStorage.clear();
 
     items.forEach((i) => {
-      if (i.description == item.description) {
+      if (i.id == item.id) {
         i.action = item.action;
       }
     });

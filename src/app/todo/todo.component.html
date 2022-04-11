@@ -38,10 +38,6 @@
                             <td>{{i + 1}}</td>
                             <td> {{item.description}} </td>
                             <td>
-                                <!-- <div [ngSwitch]="item.action">
-                                    <div *ngSwitchCase="true">Yes</div>
-                                    <div *ngSwitchDefault>No</div>
-                                </div> -->
                                 <div *ngIf="item.action; else noTemplate">
                                     Yes
                                 </div>

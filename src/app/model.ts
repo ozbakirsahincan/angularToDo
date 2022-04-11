@@ -4,10 +4,6 @@ export class Model {
   items: TodoItem[];
   constructor() {
     this.name = 'Şahincan';
-    this.items = [
-      // { description: 'Kahvaltı', action: true },
-      // { description: 'Spor', action: true },
-      // { description: 'Ders', action: false },
-    ];
+    this.items = [];
   }
 }
